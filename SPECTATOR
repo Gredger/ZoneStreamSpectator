@@ -8,14 +8,14 @@ function main()
 		else
 			printStringNow('~b~[SPEC]~r~ disabled', 3000) 
 		end
-		if not p:match('%d+') then 
+		if not p:match('%d+') and state then 
 			state = false
 			return printStringNow('~b~[SPEC] ~w~type: ~r~/sc id', 3000) 
 		end
 		local _, ped = sampGetCharHandleBySampPlayerId(p)
 		if not _ then 
 			state = false
-			return printStringNow('~b~[SPEC] ~r~undefined id', 3000) 
+			return printStringNow('~b~[SPEC] ~r~that id in your zonestream is not found', 3000) 
 		else
 			pointCameraAtChar(ped, 0, 2)
 		end
